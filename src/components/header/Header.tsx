@@ -13,7 +13,7 @@ export default function Header() {
 
     return (
         <header className="header">
-            <h1>React pokemon app</h1>
+            <h1 className="header-logo">React pokemon app</h1>
             <div className="header-buttons">
                 <Button handler={ moveToFavoritesHandler } >Favorites</Button>
                 <Button handler={ moveToComprasionHandler } >Comprasion</Button>
