@@ -2,12 +2,21 @@ import Button from "../button/Button";
 import "./Header.scss";
 
 export default function Header() {
+
+    const moveToFavoritesHandler = () => {
+        console.log('favorites');
+    }
+
+    const moveToComprasionHandler = () => {
+        console.log('comprassion');
+    }
+
     return (
         <header className="header">
             <h1>React pokemon app</h1>
             <div className="header-buttons">
-                <Button>Favorites</Button>
-                <Button>Comprasion</Button>
+                <Button handler={ moveToFavoritesHandler } >Favorites</Button>
+                <Button handler={ moveToComprasionHandler } >Comprasion</Button>
             </div>
         </header>
     )
