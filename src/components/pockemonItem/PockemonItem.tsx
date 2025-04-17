@@ -1,7 +1,8 @@
 import Button from "../button/Button";
+import { IPockemonItem } from "./IPockemonItem";
 import "./PockemonItem.scss";
 
-export default function PockemonItem({name, id} : {name: string, id: number} )  {
+export default function PockemonItem({name, id}: IPockemonItem  )  {
 
     const addToFavoritesHandler = () => {
         console.log('Added to favorites');
