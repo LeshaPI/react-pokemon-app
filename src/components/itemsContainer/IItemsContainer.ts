@@ -3,6 +3,6 @@ interface IMock {
   id: number;
 }
 
-export interface IItemContainer {
+export interface IItemsContainer {
     mockList: Array<IMock>;
 }

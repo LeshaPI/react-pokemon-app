@@ -1,6 +1,6 @@
 import Header from "./components/header/Header";
 import "./App.scss";
-import ItemContainer from "./components/itemContainer/ItemContainer";
+import ItemsContainer from "./components/itemsContainer/ItemsContainer";
 
 export const App = () => {
 
@@ -23,7 +23,7 @@ export const App = () => {
   return (
     <div className="app">
       <Header/>
-      <ItemContainer mockList={ mockList } />
+      <ItemsContainer mockList={ mockList } />
     </div>
   )
 }
