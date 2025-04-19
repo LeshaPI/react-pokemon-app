@@ -1,0 +1,18 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: antiquewhite;
+    
+    .item-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 50%;
+        min-width: 50%;
+    }
+}

@@ -1,0 +1,22 @@
+.button { 
+    background: none; 
+    border: none;
+    cursor: pointer;
+    max-width: 10em;
+    min-width: 5em;
+    height: 75%;
+    background-color: brown;
+    border: solid black 1px;
+    border-radius: 30px;
+    color: antiquewhite;
+    font: 1em sans-serif;
+    transition: 0.5s;
+    font-size: 1em;
+    padding: 3px;
+    margin: 5px;
+ 
+    &:hover {
+        color: black;
+        background-color: rgb(251, 245, 226);
+    }
+}    
