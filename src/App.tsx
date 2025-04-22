@@ -1,7 +1,6 @@
 import Header from "./components/header/Header";
 import "./App.scss";
 import ItemContent from "./components/itemContent/ItemContent";
-//import ItemsContainer from "./components/itemsContainer/ItemsContainer";
 
 interface IStats {
   name: string;

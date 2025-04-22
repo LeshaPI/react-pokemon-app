@@ -1,10 +1,16 @@
 import { IMock } from "../../App";
-import { addToComprassionHandler, addToFavoritesHandler } from "../../services/handlers";
 import Button from "../button/Button";
 import "./ItemContent.scss";
 
 export default function ItemContent( {name, height, weight, image, stats}: IMock) {
 
+    const addToFavoritesHandler = () => {
+        console.log('Added to favorites');
+    }
+    
+    const addToComprassionHandler = () => {
+        console.log('Added to comprassion');
+    }
 
     return(
         <div className="content">
