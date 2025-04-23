@@ -20,3 +20,10 @@
         background-color: rgb(251, 245, 226);
     }
 }    
+
+@media (max-width: 600px) {
+    .button {
+        padding: 1px;
+        font-size: 10px;
+    }
+}

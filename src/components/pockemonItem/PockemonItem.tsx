@@ -7,11 +7,11 @@ export default function PockemonItem({name, id}: IPockemonItem  )  {
     const addToFavoritesHandler = () => {
         console.log('Added to favorites');
     }
-
+    
     const addToComprassionHandler = () => {
         console.log('Added to comprassion');
     }
-
+    
     return (
         <div className="item">
             <h3>{ name }</h3>
