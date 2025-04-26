@@ -1,6 +1,6 @@
 import Header from "./components/header/Header";
 import "./App.scss";
-import ItemContent from "./components/itemContent/ItemContent";
+import ItemsToCompare from "./components/itemsToCompare/ItemsToCompare";
 
 interface IStats {
   name: string;
@@ -51,7 +51,7 @@ export const App = () => {
   return (
     <div className="app">
       <Header/>
-      <ItemContent {...mockList[0]} />
+      <ItemsToCompare firstPockemon={mockList[0]} secondPockemon={mockList[1]}/>
     </div>
   )
 }
