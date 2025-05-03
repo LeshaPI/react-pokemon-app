@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Button from "../button/Button";
 import "./Header.scss";
 
@@ -13,10 +14,16 @@ export default function Header() {
 
     return (
         <header className="header">
-            <h1 className="header-logo">React pokemon app</h1>
+            <Link to="/" className="header-logo__link">
+                <h1 className="header-logo__content">React pokemon app</h1>
+            </Link>
             <div className="header-buttons">
-                <Button handler={ moveToFavoritesHandler } >Favorites</Button>
-                <Button handler={ moveToComprasionHandler } >Comprasion</Button>
+                <Link to="/favorites">
+                    <Button handler={ moveToFavoritesHandler } >Favorites</Button>
+                </Link>
+                <Link to="/comprasion">
+                    <Button handler={ moveToComprasionHandler } >Comprasion</Button>
+                </Link>
             </div>
         </header>
     )

@@ -6,8 +6,12 @@
     background-color: antiquewhite;
     border-bottom: solid black 1px;
 
-    .header-logo{
-        font-size: calc( (100vw - 480px)/(1280 - 480) * (24 - 16) + 16px);
+    .header-logo__link{
+        all: unset;
+
+        .header-logo__content{
+            font-size: calc( (100vw - 480px)/(1280 - 480) * (24 - 16) + 16px);
+        }
     }
 
     .header-buttons{
