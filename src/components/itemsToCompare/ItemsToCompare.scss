@@ -1,0 +1,17 @@
+.compare{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+
+    .compare-table{
+        border: 1px solid black;
+        
+        .compare-table-сell {
+            height: 100px;
+            border: 1px  solid black;
+            padding: 5px;
+        }
+    }
+}
