@@ -1,6 +1,6 @@
 import Header from "./components/header/Header";
 import "./App.scss";
-import ItemsToCompare from "./components/itemsToCompare/ItemsToCompare";
+import Router from "./components/router/Router";
 
 interface IStats {
   name: string;
@@ -16,6 +16,9 @@ export interface IMock {
   stats: IStats[];
 }
 
+export interface IMockList {
+  mock: IMock[];
+}
 
 export const App = () => {
 
@@ -51,7 +54,7 @@ export const App = () => {
   return (
     <div className="app">
       <Header/>
-      <ItemsToCompare firstPockemon={mockList[0]} secondPockemon={mockList[1]}/>
+      <Router mock = {mockList}/>
     </div>
   )
 }
