@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Pagination from "../pagination/Pagination";
 import PockemonItem from "../pockemonItem/PockemonItem";
 import "./ItemsContainer.scss";
-import { RootState } from "../../store/store";
+import { AppDispatch, RootState } from "../../store/store";
 import { getPokemonsAsync } from "../../store/pokemons/pokemonSlice";
 import { useEffect } from "react";
 import { getURL } from "../API/API";
@@ -13,14 +13,14 @@ export default function ItemsContainer() {
   const pageLimit = useSelector((state: RootState) => state.pokemons.pageLimit);
   const isLoading = useSelector((state:RootState) => state.pokemons.isloading);
   const error = useSelector((state:RootState) => state.pokemons.error);
-  const dispatch =  useDispatch();
+  const dispatch =  useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(getPokemonsAsync(getURL(pageLimit)));
   }, [dispatch, pageLimit]);
 
-  const itemList = pockemons.map(( pockemon ) => 
-    <PockemonItem key={pockemon.id} name={pockemon.name} id={pockemon.id}/>
+  const itemList = pockemons.map(( pockemon, index ) => 
+    <PockemonItem key={index} name={pockemon.name}/>
   );
 
   if(isLoading) {
