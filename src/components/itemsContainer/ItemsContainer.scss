@@ -4,5 +4,14 @@
     grid-template-rows: repeat();
     grid-gap: 16px;
     justify-items: center;
-    margin-top: 50px;
+    margin: 50px 100px 0px 100px;
+}
+
+.loader, 
+.error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    font-size: 35px;
 }
