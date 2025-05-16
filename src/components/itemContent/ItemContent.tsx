@@ -4,6 +4,8 @@ import { getPockemons } from "../API/API";
 import { useParams } from "react-router";
 import { IPokemon } from "../../types";
 import { useResponceStatus } from "../../hooks/useResponceStatus";
+import Loader from "../loader/Loader";
+import Error from "../error/Error";
 
 export default function ItemContent( ) {
 
@@ -19,11 +21,11 @@ export default function ItemContent( ) {
     }
 
     if (loading) {
-        return <p>loading...</p>
+        return <Loader/>
     };
 
     if (error) {
-        return <p>{error}</p>
+        return <Error error={error}/>
     }
 
     return(
