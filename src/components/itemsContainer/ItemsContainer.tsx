@@ -5,7 +5,7 @@ import "./ItemsContainer.scss";
 import { AppDispatch, RootState } from "../../store/store";
 import { getPokemonsAsync } from "../../store/pokemons/pokemonSlice";
 import { useEffect } from "react";
-import { getURL } from "../API/API";
+import { getURL } from "../../API/API";
 import Loader from "../loader/Loader";
 import Error from "../error/Error";
 

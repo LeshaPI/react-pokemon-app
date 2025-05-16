@@ -1,6 +1,6 @@
 import Button from "../button/Button";
 import "./ItemContent.scss";
-import { getPockemons } from "../API/API";
+import { getPockemons } from "../../API/API";
 import { useParams } from "react-router";
 import { IPokemon } from "../../types";
 import { useResponceStatus } from "../../hooks/useResponceStatus";

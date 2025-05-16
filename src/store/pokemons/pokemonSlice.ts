@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { IPokemonResp } from "./IPokemons";
 import { getCurrentPage } from "../../services";
-import { getPockemons } from "../../components/API/API";
+import { getPockemons } from "../../API/API";
 
 const initialState:IPokemonResp = {
     currentPokemonList: {
