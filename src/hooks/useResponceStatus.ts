@@ -1,39 +1,48 @@
 import { useEffect, useState } from "react";
+import { IPokemon } from "../types";
 
-export interface IResponceState<T> {
+export interface IResponseState <T> {
   data: T | null;
   loading: boolean;
   error: string | null;
 };
 
-type fetchFunc<T> = () => Promise<T>;
+interface IUseResponseProps{
+  url: string;
+}
 
-export function useResponceStatus<T>(fetchFunc: fetchFunc<T>)  {
-  const [state, setState] = useState<IResponceState<T>>({
+export function useResponseStatus<T = IPokemon> ({ url }: IUseResponseProps) {
+  const [state, setState] = useState<IResponseState<T>>({
     data: null,
     loading: true,
     error: null,
   });
 
+
   useEffect(() => {
 
     setState(prev => ({ ...prev, loading: true, error: null }));
-  
-    fetchFunc().then((resp) => {
-      setState({
-        data: resp,
-        loading: false,
-        error: null,
-      });
-    }).catch((err) => {
-      setState({
-        data: null,
-        loading: false,
-        error: err.message,
-      });
-    });
 
-  }, []);
+    (async () => {
+
+      try {
+        const responce = await fetch(url);
+        const data = await responce.json()
+        setState({
+          data: data as T,
+          loading: false,
+          error: null,
+        });
+      } catch ( err ) {
+        setState({
+          data: null,
+          loading: false,
+          error: err instanceof Error ? err.name : 'Unknown error',
+        });
+      }
+    })()
+
+  }, [ url ]);
 
   return state;
 }

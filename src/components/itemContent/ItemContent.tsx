@@ -1,16 +1,16 @@
 import Button from "../button/Button";
 import "./ItemContent.scss";
-import { getPockemons } from "../../API/API";
 import { useParams } from "react-router";
 import { IPokemon } from "../../types";
-import { useResponceStatus } from "../../hooks/useResponceStatus";
+import { useResponseStatus } from "../../hooks/useResponceStatus";
 import Loader from "../loader/Loader";
 import Error from "../error/Error";
 
 export default function ItemContent( ) {
 
     const { name } = useParams();
-    const {data, loading, error} = useResponceStatus<IPokemon>(() => getPockemons(`https://pokeapi.co/api/v2/pokemon/${name}`));
+    const url = `https://pokeapi.co/api/v2/pokemon/${name}`
+    const {data, loading, error} = useResponseStatus<IPokemon>({ url });
 
     const addToFavoritesHandler = () => {
         console.log('Added to favorites');
