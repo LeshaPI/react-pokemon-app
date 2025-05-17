@@ -1,4 +1,6 @@
+import { MouseEvent } from 'react';
+
 export interface IButton {
     children: string, 
-    handler: () => void,
+    handler: (event: MouseEvent<HTMLButtonElement>) => void,
 }
