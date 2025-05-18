@@ -22,7 +22,7 @@ export default function ItemsContainer() {
   }, [dispatch, pageLimit]);
 
   const itemList = pockemons.map(( pockemon, index ) => 
-    <PockemonItem key={index} name={pockemon.name}/>
+    <PockemonItem key={index} name={pockemon.name} url={pockemon.url}/>
   );
 
   if(isLoading) {
