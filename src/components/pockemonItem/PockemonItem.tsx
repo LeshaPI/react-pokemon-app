@@ -47,7 +47,7 @@ export default function PockemonItem(pokemon: IPokemonDecscription )  {
         }
 
         if(!isAddedToCompression && compressionSize) {
-            openModal('Можно сравнить только два покемона');
+            openModal('Only two Pokémon can be compared');
         } 
 
         
