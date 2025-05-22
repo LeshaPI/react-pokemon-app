@@ -3,6 +3,6 @@ export const getURL = (pageLimit: number) => {
 };
 
 export const getPockemons = async (URL: string ) => {
-    const responce = await fetch(URL);
-    return await responce.json();
+    const responce = (await fetch(URL)).json();
+    return await responce;
 };

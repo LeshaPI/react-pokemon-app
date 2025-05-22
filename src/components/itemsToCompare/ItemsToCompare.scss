@@ -1,5 +1,6 @@
 .compare{ 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 90vh;
@@ -8,6 +9,8 @@
         border: 1px solid black;
         
         .compare-table-сell {
+            min-height: 50px;
+            min-width: 50px;
             height: 100px;
             border: 1px  solid black;
             padding: 5px;
