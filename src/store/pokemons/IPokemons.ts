@@ -9,10 +9,14 @@ export interface IPokemonResp{
     count: number,
     next: string |null,
     previous: string | null,
-    results: IPokemonDecscription[] | [],
+    results: IPokemonDecscription[],
   },
   currentPage: number,
   pageLimit: number,
   isloading: boolean,
   error: string,
 }
+
+export type TExtendedDescription = IPokemonDecscription & {
+  isAdded: boolean
+};

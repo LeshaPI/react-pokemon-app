@@ -1,11 +1,16 @@
-import { IMockList } from "../../App"
+import { useSelector } from "react-redux";
 import Pagination from "../pagination/Pagination"
 import PockemonItem from "../pockemonItem/PockemonItem"
+import { RootState } from "../../store/store";
 
-export default function FavoriteItems( favoritItems: IMockList ) {
+export default function FavoriteItems( ) {
 
-  const itemList = favoritItems.mock.map(( pockemon, index ) => <PockemonItem key={index} name={pockemon.name}/>)
-  
+  const pockemons = useSelector((state: RootState) => state.favorites.pokemons);
+
+  const itemList = pockemons.map(( pockemon, index ) => 
+    <PockemonItem key={index} name={pockemon.name} url={pockemon.url}/>
+  );
+
   return(
     <>
       <div className="items">
