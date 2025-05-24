@@ -4,7 +4,7 @@ import PockemonItem from "../pockemonItem/PockemonItem";
 import "./ItemsContainer.scss";
 import { AppDispatch, RootState } from "../../store/store";
 import { getPokemonsAsync } from "../../store/pokemons/pokemonSlice";
-import { useEffect } from "react";
+import {  useEffect } from "react";
 import { getURL } from "../../API/API";
 import Loader from "../loader/Loader";
 import Error from "../error/Error";
@@ -16,6 +16,7 @@ export default function ItemsContainer() {
   const isLoading = useSelector((state:RootState) => state.pokemons.isloading);
   const error = useSelector((state:RootState) => state.pokemons.error);
   const dispatch =  useDispatch<AppDispatch>();
+  
 
   useEffect(() => {
     dispatch(getPokemonsAsync(getURL(pageLimit)));

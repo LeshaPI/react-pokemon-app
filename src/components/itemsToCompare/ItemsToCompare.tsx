@@ -1,26 +1,46 @@
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../button/Button";
-import { IItemsToCompare } from "./IItemsToCompare";
 import './ItemsToCompare.scss';
+import { RootState } from "../../store/store";
+import { removeFromCompresion } from "../../store/pokemons/compressionPokemonSlice";
 
-export default function ItemsToCompare( {firstPockemon, secondPockemon}: IItemsToCompare ) {
+export default function ItemsToCompare(  ) {
+
+    const pokemonToCompare = useSelector((pokemon: RootState) => pokemon.compression.pokemonsToCompare);
+
+
+    const dispatch = useDispatch();
+
+    const firstPokemon = pokemonToCompare[0];
+    const secondPokemon = pokemonToCompare[1];
+
+  
+    const removeHandler = (pokemonName: string) => () => {
+        if (!pokemonName || pokemonToCompare.length === 0) return;
+
+        if (pokemonToCompare[0].name === pokemonName) {
+            dispatch(removeFromCompresion(pokemonName));
+        } else {
+            dispatch(removeFromCompresion(pokemonToCompare[0].name));
+        }
+
+    };
     
-    const removeRowHandler = () => {
-        console.log('Removed')
-    } 
+    
 
     return (
         <div className="compare">
-           <table className="compare-table">
+           <table className="compare-table">    
             <thead>
                 <tr>
                     <td className="compare-table-сell">
                         Name:
                     </td>
                     <td className="compare-table-сell">
-                        {firstPockemon.name}
+                        {firstPokemon ? firstPokemon.name : ' '}
                     </td>
                     <td className="compare-table-сell">
-                        {secondPockemon.name}
+                        {secondPokemon ? secondPokemon.name : ' '}
                     </td>
                 </tr>
             </thead>
@@ -30,12 +50,10 @@ export default function ItemsToCompare( {firstPockemon, secondPockemon}: IItemsT
                         Height:
                     </td>
                     <td className="compare-table-сell">
-                        {firstPockemon.height}
-                        <Button handler={removeRowHandler}> Remove </Button>
+                        {firstPokemon ? firstPokemon.height : ' '}
                     </td>
                     <td className="compare-table-сell">
-                        {secondPockemon.height}
-                        <Button handler={removeRowHandler}> Remove </Button>
+                        {secondPokemon ? secondPokemon.height : ' '}
                     </td>
                 </tr>
                 <tr>
@@ -43,16 +61,18 @@ export default function ItemsToCompare( {firstPockemon, secondPockemon}: IItemsT
                         Weight:
                     </td>
                     <td className="compare-table-сell">
-                        {firstPockemon.weight}
-                        <Button handler={removeRowHandler}> Remove </Button>
+                        {firstPokemon ?  firstPokemon.weight : ' ' }
                     </td>
                     <td className="compare-table-сell">
-                        {secondPockemon.weight}
-                        <Button handler={removeRowHandler}> Remove </Button>
+                        {secondPokemon ? secondPokemon.height : ' '}
                     </td>
                 </tr>
             </tbody>
             </table> 
+            <div className="compare-buttons">
+                <Button handler={removeHandler(firstPokemon ? firstPokemon.name : '')}> { 'remove first pokemon' }</Button>
+                <Button handler={removeHandler(secondPokemon ? secondPokemon.name : '')}> { 'remove second pokemon' }</Button>
+            </div>
         </div>
     )
 }

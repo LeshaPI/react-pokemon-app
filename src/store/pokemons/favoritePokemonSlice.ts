@@ -15,10 +15,11 @@ const favoritePokemonSlice = createSlice({
     reducers: {
         addToFavorites( state, action: PayloadAction<TExtendedDescription> ) {
             if ( 
-              state.pokemons.every(pokemon => pokemon.name !== action.payload.name)
-            ){
-              state.pokemons.push(action.payload);
-            }
+              state.pokemons.some(pokemon => pokemon.name === action.payload.name)
+            ) return;
+
+            state.pokemons.push(action.payload);
+
         },
         removeFromFavorites( state, action: PayloadAction<TExtendedDescription> ) {
             state.pokemons = state.pokemons.filter(pokemon => pokemon.name !== action.payload.name);

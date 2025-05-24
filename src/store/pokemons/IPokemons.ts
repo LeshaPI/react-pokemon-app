@@ -1,3 +1,4 @@
+import { IPokemon } from "../../types";
 
 export interface IPokemonDecscription{
   name: string;
@@ -20,3 +21,5 @@ export interface IPokemonResp{
 export type TExtendedDescription = IPokemonDecscription & {
   isAdded: boolean
 };
+
+export type TExtendedPokemon = IPokemon & {isAdded: boolean};
